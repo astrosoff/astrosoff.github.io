@@ -78,7 +78,7 @@ guessInput.addEventListener("keydown", (event) => {
   }
 });
 
-restartButton.addEventListener("click", () => {
+restartButton.addEventListener("touchstart", () => {
   game.style.display = "grid";
   restartButton.style.display = "none";
   hint.innerHTML = "";
