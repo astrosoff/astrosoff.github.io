@@ -83,7 +83,7 @@ restartButton.addEventListener("touchstart", () => {
   restartButton.style.display = "none";
   hint.innerHTML = "";
   hint.classList.remove("success", "error");
-  numpad.style.display = "flex";
+  numberpad.style.display = "flex";
   init();
 });
 
