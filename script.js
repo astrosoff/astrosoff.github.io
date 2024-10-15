@@ -6,22 +6,25 @@ const game = document.getElementById("game");
 const guessInput = document.getElementById("guess");
 const checkButton = document.getElementById("check-btn");
 
+// Define buttons
+const numButtons = document.querySelectorAll('.numpad button');
+
 let answer, noOfGuesses, guessedNumsArr;
 
 const play = () => {
-  const userGuess = guessInput.value;
+  const userGuess = Number(guessInput.value); // Convert input to a number
   if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
     alert("Please enter a valid number between 1 and 100.");
     return;
   }
   guessedNumsArr.push(userGuess);
   noOfGuesses += 1;
-  if (userGuess != answer) {
-    if (userGuess < answer) {
-      hint.innerHTML = "Troppo basso. Ritenta!";
-    } else {
-      hint.innerHTML = "Troppo alto. Ritenta!";
-    }
+
+  if (userGuess !== answer) {
+    hint.innerHTML = userGuess < answer 
+      ? "Troppo basso. Ritenta!" 
+      : "Troppo alto. Ritenta!";
+    
     noOfGuessesRef.innerHTML = `<span>N. di tentativi:</span> ${noOfGuesses}`;
     guessedNumsRef.innerHTML = `<span>Numeri provati: </span>${guessedNumsArr.join(", ")}`;
     hint.classList.remove("error");
@@ -31,9 +34,12 @@ const play = () => {
   } else {
     hint.innerHTML = `Congratulazioni!<br>Il numero segreto era <span>${answer}</span>.<br>L'hai indovinato con <span>${noOfGuesses} </span>tentativi.`;
     hint.classList.add("success");
+		numberpad.style.display = "none";
     game.style.display = "none";
     restartButton.style.display = "block";
   }
+
+  guessInput.value = ""; // Clear input after guess
 };
 
 const init = () => {
@@ -44,12 +50,28 @@ const init = () => {
   guessedNumsArr = [];
   noOfGuessesRef.innerHTML = "N. di tentativi: 0";
   guessedNumsRef.innerHTML = "Numeri provati: Nessuno";
-  guessInput.value = "";
+  guessInput.value = ""; // Clear input field on init
   hint.classList.remove("success", "error");
 };
 
+// Function to add number from the numpad to the input field
+const addToInput = (number) => {
+  guessInput.value += number; // Append number to the input field
+};
+
+// Add event listeners to numpad buttons
+numButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.id === 'clear-btn') {
+      guessInput.value = ''; // Clear input field
+    } else {
+      addToInput(button.innerText); // Add number to input field
+    }
+  });
+});
+
 guessInput.addEventListener("keydown", (event) => {
-  if (event.keyCode === 13) {
+  if (event.key === "Enter") { // Updated to use event.key for readability
     event.preventDefault();
     play();
   }
