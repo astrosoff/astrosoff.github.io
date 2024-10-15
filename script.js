@@ -18,20 +18,18 @@ const play = () => {
   noOfGuesses += 1;
   if (userGuess != answer) {
     if (userGuess < answer) {
-      hint.innerHTML = "Too low. Try Again!";
+      hint.innerHTML = "Troppo basso. Ritenta!";
     } else {
-      hint.innerHTML = "Too high. Try Again!";
+      hint.innerHTML = "Troppo alto. Ritenta!";
     }
-    noOfGuessesRef.innerHTML = `<span>No. Of Guesses:</span> ${noOfGuesses}`;
-    guessedNumsRef.innerHTML = `<span>Guessed Numbers are: </span>${guessedNumsArr.join(
-      ","
-    )}`;
+    noOfGuessesRef.innerHTML = `<span>N. di tentativi:</span> ${noOfGuesses}`;
+    guessedNumsRef.innerHTML = `<span>Numeri provati: </span>${guessedNumsArr.join(", ")}`;
     hint.classList.remove("error");
     setTimeout(() => {
       hint.classList.add("error");
     }, 10);
   } else {
-    hint.innerHTML = `Congratulations!<br>The number was <span>${answer}</span>.<br>You guessed the number in <span>${noOfGuesses} </span>tries.`;
+    hint.innerHTML = `Congratulazioni!<br>Il numero segreto era <span>${answer}</span>.<br>L'hai indovinato con <span>${noOfGuesses} </span>tentativi.`;
     hint.classList.add("success");
     game.style.display = "none";
     restartButton.style.display = "block";
@@ -44,8 +42,8 @@ const init = () => {
   console.log(answer);
   noOfGuesses = 0;
   guessedNumsArr = [];
-  noOfGuessesRef.innerHTML = "No. Of Guesses: 0";
-  guessedNumsRef.innerHTML = "Guessed Numbers are: None";
+  noOfGuessesRef.innerHTML = "N. di tentativi: 0";
+  guessedNumsRef.innerHTML = "Numeri provati: Nessuno";
   guessInput.value = "";
   hint.classList.remove("success", "error");
 };
