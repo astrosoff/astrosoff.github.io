@@ -59,13 +59,13 @@ const addToInput = (number) => {
   guessInput.value += number; // Append number to the input field
 };
 
-// Add event listeners to numpad buttons
+// Add event listeners to numpad buttons for fast input
 numButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (button.id === 'clear-btn') {
-      guessInput.value = ''; // Clear input field
+      guessInput.value = ''; // Clear input field instantly
     } else {
-      addToInput(button.innerText); // Add number to input field
+      guessInput.value += button.innerText; // Append number to input field instantly
     }
   });
 });
