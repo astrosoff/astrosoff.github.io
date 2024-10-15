@@ -61,7 +61,7 @@ const addToInput = (number) => {
 
 // Add event listeners to numpad buttons for fast input
 numButtons.forEach(button => {
-  button.addEventListener('click', () => {
+  button.addEventListener('mousedown', () => {
     if (button.id === 'clear-btn') {
       guessInput.value = ''; // Clear input field instantly
     } else {
