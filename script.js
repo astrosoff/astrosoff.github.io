@@ -14,7 +14,7 @@ let answer, noOfGuesses, guessedNumsArr;
 const play = () => {
   const userGuess = Number(guessInput.value); // Convert input to a number
   if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
-    alert("Please enter a valid number between 1 and 100.");
+    alert("Inserire un numero valido tra 1 e 100.");
     return;
   }
   guessedNumsArr.push(userGuess);
