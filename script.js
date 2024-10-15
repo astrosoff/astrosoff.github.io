@@ -81,7 +81,7 @@ restartButton.addEventListener("click", () => {
   game.style.display = "grid";
   restartButton.style.display = "none";
   hint.innerHTML = "";
-  hint.classList.remove("success");
+  hint.classList.remove("success", "error");
   numpad.style.display = "flex";
   init();
 });
