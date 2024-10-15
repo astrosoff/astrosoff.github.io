@@ -69,7 +69,7 @@ h3 {
 
 .numpad button:hover {
   background-color: #808080;
-  transition: background-color 0.1s ease;
+  transition: none;
 }
 
 .numpad button:active {
