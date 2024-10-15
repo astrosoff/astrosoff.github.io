@@ -92,6 +92,13 @@ h3 {
 .numpad #clear-btn:active {
   background-color: #ff2929;
 }
+
+#guessed-nums {
+  white-space: nowrap; /* Prevent numbers from wrapping mid-number */
+  overflow-x: auto; /* Add horizontal scrolling if necessary */
+  word-wrap: break-word; /* Let words break only at spaces or commas */
+}
+
 input[type="number"] {
   width: 100%;
   padding: 1em;
