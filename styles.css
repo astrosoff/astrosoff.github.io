@@ -68,12 +68,14 @@ h3 {
 
 .numpad button:hover {
   background-color: #808080;
+  transition: background-color 0.1s ease;
 }
 
 .numpad button:active {
   background-color: #696969;
   box-shadow: none;
   transform: translateY(2px);
+  transition: none;
 }
 
 /* Clear button styling in numpad */
