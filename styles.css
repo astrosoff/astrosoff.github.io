@@ -32,6 +32,63 @@ h3 {
   gap: 1em;
   margin: 3em auto 1.5em auto;
 }
+.numpad {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  margin: 20px auto;
+}
+
+/* Button container styling inside numpad */
+.numpad div {
+  display: flex;
+  gap: 10px;
+}
+
+/* Specific numpad button styling */
+.numpad button {
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  background-color: #a9a9a9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.numpad button:hover {
+  background-color: #808080;
+}
+
+.numpad button:active {
+  background-color: #696969;
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+/* Clear button styling in numpad */
+.numpad #clear-btn {
+  background-color: #ff5252;
+  width: 110px;
+}
+
+.numpad #clear-btn:hover {
+  background-color: #ff3d3d;
+}
+
+.numpad #clear-btn:active {
+  background-color: #ff2929;
+}
 input[type="number"] {
   width: 100%;
   padding: 1em;
