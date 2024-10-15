@@ -82,6 +82,7 @@ restartButton.addEventListener("click", () => {
   restartButton.style.display = "none";
   hint.innerHTML = "";
   hint.classList.remove("success");
+  numpad.style.display = "flex";
   init();
 });
 
