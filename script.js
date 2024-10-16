@@ -71,6 +71,14 @@ numButtons.forEach(button => {
   });
 });
 
+// When button press is released
+numButtons.forEach(button => {
+  button.addEventListener('touchend', (event) => {
+    event.preventDefault();
+    button.style.backgroundColor = "#a9a9a9"; // Reset to original color after release
+  });
+});
+
 guessInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") { // Updated to use event.key for readability
     event.preventDefault();
